@@ -69,6 +69,7 @@ print(f"Sum of 3 and 7 is : {add_nums}")
  "Welcome, <name>! You are doing amazing!". Try calling the function with different
  names.
 '''
+'''
 def personalized_welcome(name, surname):
     print(f"Welcome, {name} {surname}! You are doing amazing! ")
 
@@ -79,11 +80,32 @@ personalized_welcome("Tebogo", "Dube")
 personalized_welcome("Aqhamile","Nyathi")
 personalized_welcome("Innocentia", "Nkomo")
 
+'''
 #-----------------------------Intermediate Level-------------------------------#
 '''
  Write a function math_quiz(num1, num2) that accepts two numbers and returns the
  sum, difference, product, and quotient of these two numbers in a tuple. For example:
  (sum, difference, product, quotient). Call the function with 5 and 3.
+'''
+def math_quiz(num1, num2):
+    if num2 == 0:
+         return "Error Division by zero is not allowed"
+
+    sum_result = num1 + num2
+    diff_result = num1 - num2
+    prod_result = num1 * num2
+    quot_result = num1 / num2
+    return sum_result, diff_result ,prod_result ,quot_result
+
+num1 = 12
+num2  = 3
+results = math_quiz(num1, num2)
+print(f"Sum : {results[0]}")
+print(f"Difference : {results[1]}")
+print(f"Product : {results[2]}")
+print(f"Quotient : {results[3]}")
+
+'''        
  2. Magic Box:
  Create a function magic_box(item1, item2) that returns a sentence like: "You have
  placed <item1> and <item2> in the magic box!". Make the items "a book" and "a
