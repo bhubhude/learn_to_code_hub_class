@@ -95,6 +95,7 @@ print(access_list_item(list_index,10))
  key from a dictionary. Use KeyError handling to print a friendly message if the
  key does not exist.
 '''
+
 def get_key_value(dictionary, key):
     try:
         return dictionary[key]
@@ -109,6 +110,8 @@ print(get_key_value(dick_keys, "Car"))
  7. Create a function calculate_bmi(weight, height) that raises a custom exception
  InvalidHeightError if height is 0 or negative.
 '''
+class InvalidHeightError(Exception):
+    pass
 def calculate_bmi(weight, height):
     if height <= 0:
         raise InvalidHeightError("Height must be positive")
