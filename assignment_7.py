@@ -19,110 +19,107 @@
 '''
 from datetime import datetime
 
-from unicodedata import category
+class Student:
+    def __init__(self,student_id, name, surname,age,grade):
+        self.student_id = student_id
+        self.name = name
+        self.surname =surname
+        self.age = age
+        self.grade = grade
 
+    def __str__(self):
+        return f"ID: {self.student_id} Name: {self.name} Surname: {self.surname} Age: {self.age} Grade: {self.grade}"
 
-# class Student:
-#     def __init__(self,student_id, name, surname,age,grade):
-#         self.student_id = student_id
-#         self.name = name
-#         self.surname =surname
-#         self.age = age
-#         self.grade = grade
-#
-#     def __str__(self):
-#         return f"ID: {self.student_id} Name: {self.name} Surname: {self.surname} Age: {self.age} Grade: {self.grade}"
-#
-# class StudentManagementSystem:
-#     def __init__(self):
-#         self.students = {}
-#
-#     def add_student(self):
-#         try:
-#             student_id = input("Enter Student ID\t")
-#             if student_id in self.students:
-#                 print("Student Id already exist in a database")
-#                 return
-#
-#             name = input("Enter your Name:\t")
-#             surname = input("Enter your Surname:\t")
-#             age = int(input("Enter your Age:\t"))
-#             grade = input("Enter your Grade:\t")
-#             student = Student(student_id, name, surname, age, grade)
-#             self.students[student_id] = student
-#             print("Student Added to the Database Successfully")
-#         except ValueError:
-#             print("Age input must be an integer")
-#         except Exception as e:
-#             print(f"An error occurred {e}")
-#
-#     def update_student(self):
-#         student_id = input("Enter Student ID to update Database")
-#         if student_id in self.students:
-#             student = self.students[student_id]
-#             try:
-#                 name = input(f"Enter new Name {student.name}")
-#                 surname = input(f"Enter new Surname {student.surname}")
-#                 age = int(input(f"Enter new Age: {student.age}"))
-#                 grade = input(f"Enter new Grade {student.grade}")
-#                 if name:
-#                     student.name = name
-#                 if surname:
-#                     student.surname = surname
-#                 if age:
-#                     student.age = int(age)
-#                 if grade:
-#                     student.grade = grade
-#
-#                 print("Student is successfully updated to the Database")
-#             except ValueError:
-#                 print("Invalid input age must be an integer")
-#             except Exception as e:
-#                 print(f"An error occurred {e}")
-#             else:
-#                 print("Student not found in the Database")
-#
-#     def delete_student(self):
-#         student_id = input("Enter Student ID to delete")
-#         if student_id in self.students:
-#             del self.students[student_id]
-#             print("Student successfully deleted in the database")
-#         else:
-#             print("Student not found in the database")
-#
-#     def view_all_student(self):
-#         if not self.students:
-#             print("No Student found in the database ")
-#         else:
-#             for student in self.students:
-#                 print(student)
-#
-#     def run_system(self):
-#         while True:
-#             print("\nStudent Management System")
-#             print("1 Add Student")
-#             print("2 Update Student")
-#             print("3 Delete Student")
-#             print("4 View all Student")
-#             print("5 exit")
-#             choice = input("Enter your Choice \t")
-#             if choice == "1":
-#                 self.add_student()
-#             elif choice == "2":
-#                 self.update_student()
-#             elif choice == "3":
-#                 self.delete_student()
-#             elif choice == "4":
-#                 self.view_all_student()
-#             elif choice == "5":
-#                 print("Existing Student Management System")
-#                 break
-#             else:
-#                 print("Invalid choice please try again")
-#
-# if __name__ == "__main__":
-#     sms = StudentManagementSystem()
-#     sms.run_system()
+class StudentManagementSystem:
+    def __init__(self):
+        self.students = {}
+
+    def add_student(self):
+        try:
+            student_id = input("Enter Student ID\t")
+            if student_id in self.students:
+                print("Student Id already exist in a database")
+                return
+
+            name = input("Enter your Name:\t")
+            surname = input("Enter your Surname:\t")
+            age = int(input("Enter your Age:\t"))
+            grade = input("Enter your Grade:\t")
+            student = Student(student_id, name, surname, age, grade)
+            self.students[student_id] = student
+            print("Student Added to the Database Successfully")
+        except ValueError:
+            print("Age input must be an integer")
+        except Exception as e:
+            print(f"An error occurred {e}")
+
+    def update_student(self):
+        student_id = input("Enter Student ID to update Database")
+        if student_id in self.students:
+            student = self.students[student_id]
+            try:
+                name = input(f"Enter new Name {student.name}")
+                surname = input(f"Enter new Surname {student.surname}")
+                age = int(input(f"Enter new Age: {student.age}"))
+                grade = input(f"Enter new Grade {student.grade}")
+                if name:
+                    student.name = name
+                if surname:
+                    student.surname = surname
+                if age:
+                    student.age = int(age)
+                if grade:
+                    student.grade = grade
+
+                print("Student is successfully updated to the Database")
+            except ValueError:
+                print("Invalid input age must be an integer")
+            except Exception as e:
+                print(f"An error occurred {e}")
+            else:
+                print("Student not found in the Database")
+
+    def delete_student(self):
+        student_id = input("Enter Student ID to delete")
+        if student_id in self.students:
+            del self.students[student_id]
+            print("Student successfully deleted in the database")
+        else:
+            print("Student not found in the database")
+
+    def view_all_student(self):
+        if not self.students:
+            print("No Student found in the database ")
+        else:
+            for student in self.students:
+                print(student)
+
+    def run_system(self):
+        while True:
+            print("\nStudent Management System")
+            print("1 Add Student")
+            print("2 Update Student")
+            print("3 Delete Student")
+            print("4 View all Student")
+            print("5 exit")
+            choice = input("Enter your Choice \t")
+            if choice == "1":
+                self.add_student()
+            elif choice == "2":
+                self.update_student()
+            elif choice == "3":
+                self.delete_student()
+            elif choice == "4":
+                self.view_all_student()
+            elif choice == "5":
+                print("Existing Student Management System")
+                break
+            else:
+                print("Invalid choice please try again")
+
+if __name__ == "__main__":
+    sms = StudentManagementSystem()
+    sms.run_system()
 
 '''
  2. Library Catalog System
@@ -141,89 +138,89 @@ from unicodedata import category
  borrowed.
   When a book is returned, its status changes back to available.
  '''
-#
-# class Book:
-#     def __init__(self ,title, author):
-#         self.title = title
-#         self.author = author
-#         self.is_borrowed = False
-#
-#     def __str__(self):
-#         status = "Borrowed"if self.is_borrowed else "Available"
-#         return f"Title: {self.title} Author: {self.author} Status {status}"
-#
-# class Library:
-#     def __init__(self):
-#         self.books = []
-#
-#     def add_books(self):
-#         title = input("Enter book Title: ")
-#         author = input("Enter Author: ")
-#         book = Book(title,author)
-#         self.books.append(book)
-#         print("Book Added Successfully")
-#
-#     def borrow_book(self):
-#         title = input("Enter Title of the book to borrow: ")
-#         for book in self.books:
-#             if book.title == title:
-#                 if not book.is_borrowed:
-#                     book.is_borrowed = True
-#                     print(f"You have borrowed '{book.title}'")
-#                 else:
-#                     print("The book is already borrowed ")
-#                 return
-#             print("Book not found")
-#
-#     def return_book(self):
-#         title = input("Enter the title of a book to return: ")
-#         for book in self.books:
-#             if book.title == title:
-#                 if book.is_borrowed:
-#                     book.is_borrowed = False
-#                     print(f"You have returned '{book.title}'")
-#                 else:
-#                     print("Book was not borrowed")
-#                 return
-#             print("Book not found")
-#
-#     def display_available_books(self):
-#         available_books = [book for book in self.books if not book.is_borrowed]
-#         if not available_books:
-#             print("No books available")
-#         else:
-#             print("Books available")
-#             for book in available_books:
-#                 print(book)
-#
-#     def run_library(self):
-#         while True:
-#             print("\nDigital Library System")
-#             print("1. Add Book")
-#             print("2. Borrow Book")
-#             print("3. Return Book")
-#             print("4. View All available Books")
-#             print("5. Exit")
-#
-#             choice = input("Please enter your choice: ")
-#             if choice == "1":
-#                 self.add_books()
-#             elif choice == "2":
-#                 self.borrow_book()
-#             elif choice == "3":
-#                 self.return_book()
-#             elif choice == "4":
-#                 self.display_available_books()
-#
-#             elif choice == "5":
-#                 print("Exit The Library System")
-#                 break
-#             else:
-#                 print("Invalid input Please try again")
-#
-# if __name__ == "__main__":
-#     library = Library()
-#     library.run_library()
+
+class Book:
+    def __init__(self ,title, author):
+        self.title = title
+        self.author = author
+        self.is_borrowed = False
+
+    def __str__(self):
+        status = "Borrowed"if self.is_borrowed else "Available"
+        return f"Title: {self.title} Author: {self.author} Status {status}"
+
+class Library:
+    def __init__(self):
+        self.books = []
+
+    def add_books(self):
+        title = input("Enter book Title: ")
+        author = input("Enter Author: ")
+        book = Book(title,author)
+        self.books.append(book)
+        print("Book Added Successfully")
+
+    def borrow_book(self):
+        title = input("Enter Title of the book to borrow: ")
+        for book in self.books:
+            if book.title == title:
+                if not book.is_borrowed:
+                    book.is_borrowed = True
+                    print(f"You have borrowed '{book.title}'")
+                else:
+                    print("The book is already borrowed ")
+                return
+            print("Book not found")
+
+    def return_book(self):
+        title = input("Enter the title of a book to return: ")
+        for book in self.books:
+            if book.title == title:
+                if book.is_borrowed:
+                    book.is_borrowed = False
+                    print(f"You have returned '{book.title}'")
+                else:
+                    print("Book was not borrowed")
+                return
+            print("Book not found")
+
+    def display_available_books(self):
+        available_books = [book for book in self.books if not book.is_borrowed]
+        if not available_books:
+            print("No books available")
+        else:
+            print("Books available")
+            for book in available_books:
+                print(book)
+
+    def run_library(self):
+        while True:
+            print("\nDigital Library System")
+            print("1. Add Book")
+            print("2. Borrow Book")
+            print("3. Return Book")
+            print("4. View All available Books")
+            print("5. Exit")
+
+            choice = input("Please enter your choice: ")
+            if choice == "1":
+                self.add_books()
+            elif choice == "2":
+                self.borrow_book()
+            elif choice == "3":
+                self.return_book()
+            elif choice == "4":
+                self.display_available_books()
+
+            elif choice == "5":
+                print("Exit The Library System")
+                break
+            else:
+                print("Invalid input Please try again")
+
+if __name__ == "__main__":
+    library = Library()
+    library.run_library()
 
 '''
  3. Expense Tracker
@@ -242,98 +239,98 @@ from unicodedata import category
  expenses.
   The system prevents negative values or invalid data entries.
  '''
-# from datetime import datetime
-# class Expense:
-#     def __init__(self, amount, category, date):
-#         self.amount = amount
-#         self.category = category
-#         self.date = date
-#
-#     def __str__(self):
-#         return f"Date: {self.date.strtime('%Y-%m-%d %H:%M:%S')}, Category: {self.category}, Amount: R{self.amount:.2f}"
-#
-# class ExpenseTracker:
-#     def __init__(self):
-#         self.expenses = []
-#
-#     def add_expense(self):
-#         try:
-#             amount = float(input("Please enter your amount: "))
-#             if amount <= 0:
-#                 print("Amount must be positive ")
-#                 return
-#             category = input("Enter Category: ")
-#             date_str = input("Enter Date(YYYY-MM-DD: ")
-#             date = datetime.strptime(date_str, "%Y-%m-%d")
-#             expense = Expense(amount ,category, date)
-#             self.expenses.append(expense)
-#             print("Expense added successful ")
-#         except ValueError:
-#             print("Invalid input please enter valid amount and date (YYYY-MM-DD).")
-#         except Exception as e:
-#             print(f"Error occurred: {e}")
-#
-#     def view_expense_by_category(self):
-#         category_total = {}
-#         for expense in self.expenses:
-#             if expense.category in category_total:
-#                 category_total[expense.category] += expense.amount
-#             else:
-#                 category_total[expense.category] = expense.amount
-#
-#         if not category_total:
-#             print("No expense recorded yet")
-#         else:
-#             print("\nExpense by Category: ")
-#             for category, total in category_total.items():
-#                 print(f"{category}: R{total:.2f}")
-#
-#     def view_monthly_salary(self):
-#         monthly_expense = {}
-#         for expense in self.expenses:
-#             month_year = expense.date.strftime("%Y-%m")
-#             if month_year in monthly_expense:
-#                 if expense.category in monthly_expense[month_year]:
-#                     monthly_expense[month_year][expense.category] += expense.amount
-#                 else:
-#                     monthly_expense[month_year][expense.category] = expense.amount
-#             else:
-#                 monthly_expense[month_year] = {expense.category: expense.amount}
-#         if not monthly_expense:
-#             print("No expenses recorded yet.")
-#             return
-#
-#         print("\nMonthly Expense Summary")
-#         for month_year,category_total in monthly_expense.items():
-#             print(f"\n{month_year}: ")
-#             for category, total in category_total.items():
-#                 print(f" - {category}: R{total:.2f}")
-#
-#     def expense_run(self):
-#         while True:
-#             print("\nExpense Tracker")
-#             print("1. Add Expense")
-#             print("2. View Expenses by Category")
-#             print("3. View monthly Summary")
-#             print("4. Exit")
-#
-#             choice = input("Enter Choice: ")
-#
-#             if choice == "1":
-#                 self.add_expense()
-#             elif choice == "2":
-#                 self.view_expense_by_category()
-#             elif choice == "3":
-#                 self.view_monthly_salary()
-#             elif choice == "4":
-#                 print("Exiting Expenses Tracker")
-#                 break
-#             else:
-#                 print("Invalid choice.Please try again")
-#
-# if __name__ == "__main__":
-#     tracker = ExpenseTracker()
-#     tracker.expense_run()
+from datetime import datetime
+class Expense:
+    def __init__(self, amount, category, date):
+        self.amount = amount
+        self.category = category
+        self.date = date
+
+    def __str__(self):
+        return f"Date: {self.date.strtime('%Y-%m-%d %H:%M:%S')}, Category: {self.category}, Amount: R{self.amount:.2f}"
+
+class ExpenseTracker:
+    def __init__(self):
+        self.expenses = []
+
+    def add_expense(self):
+        try:
+            amount = float(input("Please enter your amount: "))
+            if amount <= 0:
+                print("Amount must be positive ")
+                return
+            category = input("Enter Category: ")
+            date_str = input("Enter Date(YYYY-MM-DD: ")
+            date = datetime.strptime(date_str, "%Y-%m-%d")
+            expense = Expense(amount ,category, date)
+            self.expenses.append(expense)
+            print("Expense added successful ")
+        except ValueError:
+            print("Invalid input please enter valid amount and date (YYYY-MM-DD).")
+        except Exception as e:
+            print(f"Error occurred: {e}")
+
+    def view_expense_by_category(self):
+        category_total = {}
+        for expense in self.expenses:
+            if expense.category in category_total:
+                category_total[expense.category] += expense.amount
+            else:
+                category_total[expense.category] = expense.amount
+
+        if not category_total:
+            print("No expense recorded yet")
+        else:
+            print("\nExpense by Category: ")
+            for category, total in category_total.items():
+                print(f"{category}: R{total:.2f}")
+
+    def view_monthly_salary(self):
+        monthly_expense = {}
+        for expense in self.expenses:
+            month_year = expense.date.strftime("%Y-%m")
+            if month_year in monthly_expense:
+                if expense.category in monthly_expense[month_year]:
+                    monthly_expense[month_year][expense.category] += expense.amount
+                else:
+                    monthly_expense[month_year][expense.category] = expense.amount
+            else:
+                monthly_expense[month_year] = {expense.category: expense.amount}
+        if not monthly_expense:
+            print("No expenses recorded yet.")
+            return
+
+        print("\nMonthly Expense Summary")
+        for month_year,category_total in monthly_expense.items():
+            print(f"\n{month_year}: ")
+            for category, total in category_total.items():
+                print(f" - {category}: R{total:.2f}")
+
+    def expense_run(self):
+        while True:
+            print("\nExpense Tracker")
+            print("1. Add Expense")
+            print("2. View Expenses by Category")
+            print("3. View monthly Summary")
+            print("4. Exit")
+
+            choice = input("Enter Choice: ")
+
+            if choice == "1":
+                self.add_expense()
+            elif choice == "2":
+                self.view_expense_by_category()
+            elif choice == "3":
+                self.view_monthly_salary()
+            elif choice == "4":
+                print("Exiting Expenses Tracker")
+                break
+            else:
+                print("Invalid choice.Please try again")
+
+if __name__ == "__main__":
+    tracker = ExpenseTracker()
+    tracker.expense_run()
 
 '''
  4. Inventory Management System
@@ -353,101 +350,101 @@ from unicodedata import category
  sold.
   If an item is out of stock, the system prevents further sales until it is restocked.
  '''
-# class Product:
-#     def __init__(self,name, quantity, price):
-#         self.name = name
-#         self.quantity = quantity
-#         self.price = price
-#
-#     def __str__(self):
-#         return f"Name: {self.name}, Quantity: {self.quantity}, Price: R{self.price:.2f}"
-#
-# class InventoryManagementSystem:
-#     def __init__(self):
-#         self.products = []
-#
-#     def add_product(self):
-#         try:
-#             name = input("Enter product name: ")
-#             quantity = int(input("Enter quantity: "))
-#             price = float(input("Enter price: "))
-#
-#             if quantity < 0 or price < 0:
-#                 print("Quantity and price must be non-negative")
-#                 return
-#             product = Product(name, quantity, price)
-#             self.products.append(product)
-#             print("Product added Successfully")
-#         except ValueError:
-#             print("Quantity must be an integer and price must be a number")
-#         except Exception as e:
-#             print(f"An error occurred {e}")
-#
-#     def update_stock(self, increase=True):
-#         try:
-#             name = input("Enter a product name to update: ")
-#             quantity_change = int(input("Enter quantity to add/remove"))
-#             if quantity_change == 0:
-#                 print("Change must be non zero integer")
-#                 return
-#             for product in self.products:
-#                 if product.name == name:
-#                     if increase:
-#                         product.quantity += quantity_change
-#                     else:
-#                         if product.quantity - quantity_change < 0:
-#                             print("Not enough stock available")
-#                             return
-#                         product.quantity -= quantity_change
-#                         print("Stock updated successfully")
-#
-#                         if product.quantity == 0:
-#                             print(f"{product.name} is out of stock" )
-#                             return
-#                         print("Product not found")
-#         except ValueError:
-#             print("Invalid input. Quantity must be an integer")
-#         except Exception as e:
-#             print(f"An error occurred: {e}")
-#
-#     def remove_stock(self):
-#         self.update_stock(increase=False)
-#
-#     def view_all_product(self):
-#         if not self.products:
-#             print("No product in the Inventory")
-#         else:
-#             print("Inventory")
-#             for product in self.products:
-#                 print(product)
-#
-#     def run_inventory(self):
-#         while True:
-#             print("\nInventory Management System")
-#             print("1. Add Product")
-#             print("2. Update Stock (Add)")
-#             print("3. Remove Stock (Subtract)")
-#             print("4. View all products")
-#             print("5. exit")
-#
-#             choice = input("Enter your choice: ")
-#             if choice == "1":
-#                 self.add_product()
-#             elif choice == "2":
-#                 self.update_stock()
-#             elif choice == "3":
-#                 self.remove_stock()
-#             elif choice == "4":
-#                 self.view_all_product()
-#             elif choice == "5":
-#                 print("Existing Inventory Management System")
-#                 break
-#             else:
-#                 print("Invalid choice try again")
-#
-# if __name__ == "__main__":
-#     ims = InventoryManagementSystem()
-#     ims.run_inventory()
+class Product:
+    def __init__(self,name, quantity, price):
+        self.name = name
+        self.quantity = quantity
+        self.price = price
+
+    def __str__(self):
+        return f"Name: {self.name}, Quantity: {self.quantity}, Price: R{self.price:.2f}"
+
+class InventoryManagementSystem:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self):
+        try:
+            name = input("Enter product name: ")
+            quantity = int(input("Enter quantity: "))
+            price = float(input("Enter price: "))
+
+            if quantity < 0 or price < 0:
+                print("Quantity and price must be non-negative")
+                return
+            product = Product(name, quantity, price)
+            self.products.append(product)
+            print("Product added Successfully")
+        except ValueError:
+            print("Quantity must be an integer and price must be a number")
+        except Exception as e:
+            print(f"An error occurred {e}")
+
+    def update_stock(self, increase=True):
+        try:
+            name = input("Enter a product name to update: ")
+            quantity_change = int(input("Enter quantity to add/remove"))
+            if quantity_change == 0:
+                print("Change must be non zero integer")
+                return
+            for product in self.products:
+                if product.name == name:
+                    if increase:
+                        product.quantity += quantity_change
+                    else:
+                        if product.quantity - quantity_change < 0:
+                            print("Not enough stock available")
+                            return
+                        product.quantity -= quantity_change
+                        print("Stock updated successfully")
+
+                        if product.quantity == 0:
+                            print(f"{product.name} is out of stock" )
+                            return
+                        print("Product not found")
+        except ValueError:
+            print("Invalid input. Quantity must be an integer")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def remove_stock(self):
+        self.update_stock(increase=False)
+
+    def view_all_product(self):
+        if not self.products:
+            print("No product in the Inventory")
+        else:
+            print("Inventory")
+            for product in self.products:
+                print(product)
+
+    def run_inventory(self):
+        while True:
+            print("\nInventory Management System")
+            print("1. Add Product")
+            print("2. Update Stock (Add)")
+            print("3. Remove Stock (Subtract)")
+            print("4. View all products")
+            print("5. exit")
+
+            choice = input("Enter your choice: ")
+            if choice == "1":
+                self.add_product()
+            elif choice == "2":
+                self.update_stock()
+            elif choice == "3":
+                self.remove_stock()
+            elif choice == "4":
+                self.view_all_product()
+            elif choice == "5":
+                print("Existing Inventory Management System")
+                break
+            else:
+                print("Invalid choice try again")
+
+if __name__ == "__main__":
+    ims = InventoryManagementSystem()
+    ims.run_inventory()
 
 
 '''
@@ -466,47 +463,47 @@ from unicodedata import category
  appears.
  
 '''
-# def min_calculator_app(num1, num2, operation):
-#     if operation == "+":
-#         return num1 + num2
-#
-#     elif operation == "-":
-#         return num1 - num2
-#
-#     elif operation == "*":
-#         return num1 * num2
-#
-#     elif operation == "/":
-#         if num2 == 0:
-#             raise
-#         ZeroDivisionError("Cannot divided by Zero")
-#         return num1 / num2
-#     else:
-#         raise
-# ValueError("Invalid operation")
-#
-# def min_calculator():
-#     while True:
-#         try:
-#             num1 = float(input("Enter first number: "))
-#             num2 = float(input("Enter second number: "))
-#             operation = input("Enter Operation (+,-,/,*): ")
-#             result_op = min_calculator_app(num1, num2, operation)
-#             print(f"Results: {result_op}")
-#         except ValueError as  e:
-#             print(f"Invalid input. {e}")
-#         except ZeroDivisionError as e:
-#             print(e)
-#         except Exception as e:
-#             print(f"An unexpected error occurred {e}")
-#
-#         another_calculator = input("Do another calculator (yes/no): ")
-#         if another_calculator.lower() != "yes":
-#             break
-#
-#     print("Calculator existing")
-# if __name__ == "__main__":
-#     min_calculator()
+def min_calculator_app(num1, num2, operation):
+    if operation == "+":
+        return num1 + num2
+
+    elif operation == "-":
+        return num1 - num2
+
+    elif operation == "*":
+        return num1 * num2
+
+    elif operation == "/":
+        if num2 == 0:
+            raise
+        ZeroDivisionError("Cannot divided by Zero")
+        return num1 / num2
+    else:
+        raise
+ValueError("Invalid operation")
+
+def min_calculator():
+    while True:
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+            operation = input("Enter Operation (+,-,/,*): ")
+            result_op = min_calculator_app(num1, num2, operation)
+            print(f"Results: {result_op}")
+        except ValueError as  e:
+            print(f"Invalid input. {e}")
+        except ZeroDivisionError as e:
+            print(e)
+        except Exception as e:
+            print(f"An unexpected error occurred {e}")
+
+        another_calculator = input("Do another calculator (yes/no): ")
+        if another_calculator.lower() != "yes":
+            break
+
+    print("Calculator existing")
+if __name__ == "__main__":
+    min_calculator()
 
 '''
 6. Hangman Game
