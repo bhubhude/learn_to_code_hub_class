@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4531df38-ee38-48a2-81e3-60676578c535" name="Changes" comment="&quot;first commit&quot;">
-      <change afterPath="$PROJECT_DIR$/excel_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/learn_to_code_hub_class.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/learn_to_code_hub_class.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment_8.py" afterDir="false" />
-    </list>
+    <list default="true" id="4531df38-ee38-48a2-81e3-60676578c535" name="Changes" comment="&quot;first commit&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -355,18 +350,8 @@
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="6a094019-3785-4a66-9b01-71f57e9b4756" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
-        <entry key="6a094019-3785-4a66-9b01-71f57e9b4756">
-          <value>
-            <State />
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State />
