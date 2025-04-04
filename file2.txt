@@ -1,0 +1,11 @@
+Hello World !!
+Hallo People
+Hello, Python
+I love python
+Hallo Python
+Hallo World
+Hallo People
+Hallo Friends
+
+Hello, Python
+Welcome to file handling
